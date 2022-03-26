@@ -5,9 +5,10 @@ SHELL=/bin/bash
 IMAGE=hasura-auth:latest
 
 check:
-	[[ which docker ]] || echo  "Error: no docker command found!"
-	[[ which docker-compose ]] || echo  "Error: no docker-compose command found!"
-	[[ -r Dockerfile ]] || echo  "Error: no Dockerfile file found!"
+	@which docker  || echo  "Error: no docker command found!"
+	@which docker-compose || echo  "Error: no docker-compose command found!"
+	@[[ -r Dockerfile ]] && ls -l Dockerfile || echo  "Error: no Dockerfile file found!"
+	@[[ -r docker-compose.yaml ]] && ls -l docker-compose.yaml || echo  "Error: no Dockerfile file found!"
 
 
 build:
